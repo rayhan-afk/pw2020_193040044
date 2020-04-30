@@ -15,7 +15,7 @@ $b = query("SELECT * FROM alat_musik WHERE id = $id")[0];
 <html>
 
 <head>
-    <title>Latihan6dDetail_193040044</title>
+    <title>Latihan6eDetail_193040044</title>
 </head>
 
 <body>

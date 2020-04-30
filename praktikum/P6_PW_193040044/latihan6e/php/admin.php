@@ -1,7 +1,19 @@
 <?php
-
 require 'functions.php';
-$alatmusik = query("SELECT * FROM alat_musik");
+
+$alat_musik = query("SELECT * FROM alat_musik");
+
+if (isset($_GET['cari'])) {
+  $keyword = $_GET['keyword'];
+  $alat_musik = query("SELECT * FROM alat_musik WHERE 
+                        nama_alatmusik LIKE '%$keyword%' OR
+                        jenis LIKE '%$keyword%' OR
+                        asal LIKE '%$keyword%' OR 
+                        tahun_ditemukan LIKE '%$keyword%' OR
+                        warna LIKE '%$keyword%' ");
+} else {
+  $alat_musik = query("SELECT * FROM alat_musik");
+}
 
 ?>
 
@@ -18,6 +30,10 @@ $alatmusik = query("SELECT * FROM alat_musik");
   <div class="add">
     <a href="tambah.php">Tambah Data</a>
   </div>
+  <form action="" method="get">
+    <input type="text" name="keyword" autofocus>
+    <button type="submit" name="cari">Cari!!</button>
+  </form>
   <table border="1" cellpadding="13" cellspacing="0">
     <tr>
       <th>#</th>

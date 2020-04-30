@@ -8,7 +8,7 @@ $alatmusik = query("SELECT * FROM alat_musik")
 <html>
 
 <head>
-    <title>Latihan6d_193040044</title>
+    <title>Latihan6e_193040044</title>
     <link rel="stylesheet" href="css/styleCindex.css" type="text/css">
 </head>
 
