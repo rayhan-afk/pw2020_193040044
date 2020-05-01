@@ -45,23 +45,33 @@ if (isset($_GET['cari'])) {
       <th>Tahun Ditemukan</th>
       <th>Warna</th>
     </tr>
-    <?php $i = 1; ?>
-    <?php foreach ($alatmusik as $musik) : ?>
+
+    <?php if (empty($alat_musik)) : ?>
       <tr>
-        <td><?= $i; ?></td>
-        <td>
-          <a href="ubah.php?id=<?= $musik['id'] ?>"><button>Ubah</button></a>
-          <a href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
+        <td colspan="8">
+          <h1 style="text-align: center; color: red; font-style: italic;">Data tidak ditemukan</h1>
         </td>
-        <td><img src="../assets/img/<?= $musik['gambar']; ?>" alt=""></td>
-        <td><?= $musik['nama_alatmusik']; ?></td>
-        <td><?= $musik['jenis']; ?></td>
-        <td><?= $musik['asal']; ?></td>
-        <td><?= $musik['tahun_ditemukan']; ?></td>
-        <td><?= $musik['warna']; ?></td>
       </tr>
-      <?php $i++; ?>
-    <?php endforeach; ?>
+    <?php else : ?>
+
+      <?php $i = 1; ?>
+      <?php foreach ($alat_musik as $musik) : ?>
+        <tr>
+          <td><?= $i; ?></td>
+          <td>
+            <a href="ubah.php?id=<?= $musik['id'] ?>"><button>Ubah</button></a>
+            <a href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
+          </td>
+          <td><img src="../assets/img/<?= $musik['gambar']; ?>" alt=""></td>
+          <td><?= $musik['nama_alatmusik']; ?></td>
+          <td><?= $musik['jenis']; ?></td>
+          <td><?= $musik['asal']; ?></td>
+          <td><?= $musik['tahun_ditemukan']; ?></td>
+          <td><?= $musik['warna']; ?></td>
+        </tr>
+        <?php $i++; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </table>
 </body>
 
