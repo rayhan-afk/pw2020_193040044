@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["username"])) {
+  header("Location: login.php");
+  exit;
+}
 require 'functions.php';
 
 $alat_musik = query("SELECT * FROM alat_musik");
@@ -23,20 +29,23 @@ if (isset($_GET['cari'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Document</title>
 </head>
 
-<body>
+<body style="background-color: aquamarine; ">
   <div class="add">
-    <a href="tambah.php">Tambah Data</a>
+    <a class="btn btn-success" href="tambah.php">Tambah Data</a>
   </div>
+  <br>
   <div class="logout">
-    <a href="logout.php">Logout</a>
+    <a class="btn btn-success" href="logout.php">Logout</a>
   </div>
   <br>
   <form action="" method="get">
     <input type="text" name="keyword" size="40" placeholder="lagi nyari apa?" autocomplete="off" autofocus>
-    <button type="submit" name="cari">Cari!!</button>
+    <button class="btn btn-success" type="submit" name="cari">Cari!!</button>
   </form>
   <br>
   <table border="1" cellpadding="13" cellspacing="0">
@@ -64,8 +73,8 @@ if (isset($_GET['cari'])) {
         <tr>
           <td><?= $i; ?></td>
           <td>
-            <a href="ubah.php?id=<?= $musik['id'] ?>"><button>Ubah</button></a>
-            <a href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
+            <a href="ubah.php?id=<?= $musik['id'] ?>"><button class="btn btn-light">Ubah</button></a>
+            <a class="btn btn-success" href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
           </td>
           <td><img src="../assets/img/<?= $musik['gambar']; ?>" alt=""></td>
           <td><?= $musik['nama_alatmusik']; ?></td>
