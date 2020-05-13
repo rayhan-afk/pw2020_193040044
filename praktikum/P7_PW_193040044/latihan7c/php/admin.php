@@ -35,58 +35,60 @@ if (isset($_GET['cari'])) {
 </head>
 
 <body style="background-color: aquamarine; ">
-  <div class="add">
-    <a class="btn btn-success" href="tambah.php">Tambah Data</a>
-  </div>
-  <br>
-  <div class="logout">
-    <a class="btn btn-success" href="logout.php">Logout</a>
-  </div>
-  <br>
-  <form action="" method="get">
-    <input type="text" name="keyword" size="40" placeholder="lagi nyari apa?" autocomplete="off" autofocus>
-    <button class="btn btn-success" type="submit" name="cari">Cari!!</button>
-  </form>
-  <br>
-  <table border="1" cellpadding="13" cellspacing="0">
-    <tr>
-      <th>#</th>
-      <th>Opsi</th>
-      <th>Gambar</th>
-      <th>Nama Alat Musik</th>
-      <th>Jenis</th>
-      <th>Asal</th>
-      <th>Tahun Ditemukan</th>
-      <th>Warna</th>
-    </tr>
-
-    <?php if (empty($alat_musik)) : ?>
+  <center>
+    <div class="add">
+      <a class="btn btn-success" href="tambah.php">Tambah Data</a>
+    </div>
+    <br>
+    <div class="logout">
+      <a class="btn btn-success" href="logout.php">Logout</a>
+    </div>
+    <br>
+    <form action="" method="get">
+      <input type="text" name="keyword" size="40" placeholder="lagi nyari apa?" autocomplete="off" autofocus>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="cari">Cari!!</button>
+    </form>
+    <br>
+    <table border="1" cellpadding="13" cellspacing="0">
       <tr>
-        <td colspan="8">
-          <h1 style="text-align: center; color: red; font-style: italic;">Data tidak ditemukan</h1>
-        </td>
+        <th>#</th>
+        <th>Opsi</th>
+        <th>Gambar</th>
+        <th>Nama Alat Musik</th>
+        <th>Jenis</th>
+        <th>Asal</th>
+        <th>Tahun Ditemukan</th>
+        <th>Warna</th>
       </tr>
-    <?php else : ?>
 
-      <?php $i = 1; ?>
-      <?php foreach ($alat_musik as $musik) : ?>
+      <?php if (empty($alat_musik)) : ?>
         <tr>
-          <td><?= $i; ?></td>
-          <td>
-            <a href="ubah.php?id=<?= $musik['id'] ?>"><button class="btn btn-light">Ubah</button></a>
-            <a class="btn btn-success" href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
+          <td colspan="8">
+            <h1 style="text-align: center; color: red; font-style: italic;">Data tidak ditemukan</h1>
           </td>
-          <td><img src="../assets/img/<?= $musik['gambar']; ?>" alt=""></td>
-          <td><?= $musik['nama_alatmusik']; ?></td>
-          <td><?= $musik['jenis']; ?></td>
-          <td><?= $musik['asal']; ?></td>
-          <td><?= $musik['tahun_ditemukan']; ?></td>
-          <td><?= $musik['warna']; ?></td>
         </tr>
-        <?php $i++; ?>
-      <?php endforeach; ?>
-    <?php endif; ?>
-  </table>
+      <?php else : ?>
+
+        <?php $i = 1; ?>
+        <?php foreach ($alat_musik as $musik) : ?>
+          <tr>
+            <td><?= $i; ?></td>
+            <td>
+              <a href="ubah.php?id=<?= $musik['id'] ?>"><button class="btn btn-light">Ubah</button></a>
+              <a class="btn btn-success" href="hapus.php?id=<?= $musik['id'] ?>" onclick="return confirm('Hapus Data??')">Hapus</a>
+            </td>
+            <td><img src="../assets/img/<?= $musik['gambar']; ?>" alt=""></td>
+            <td><?= $musik['nama_alatmusik']; ?></td>
+            <td><?= $musik['jenis']; ?></td>
+            <td><?= $musik['asal']; ?></td>
+            <td><?= $musik['tahun_ditemukan']; ?></td>
+            <td><?= $musik['warna']; ?></td>
+          </tr>
+          <?php $i++; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </table>
+  </center>
 </body>
 
 </html>

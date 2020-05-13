@@ -8,21 +8,24 @@ $alatmusik = query("SELECT * FROM alat_musik")
 <html>
 
 <head>
-    <title>Latihan7a_193040044</title>
+    <title>ALAT MUSIK</title>
     <link rel="stylesheet" href="css/styleCindex.css" type="text/css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<body background="assets/img/bckgrd.jpg">
+<body style="background-color: aquamarine;">
     <center>
         <h1>Alat Musik</h1>
         <div class="container">
             <?php foreach ($alatmusik as $b) : ?>
                 <P class="tipe">
-                    <a href="php/detail.php?id=<?= $b['id'] ?>">
+                    <a class="btn btn-success" href="php/detail.php?id=<?= $b['id'] ?>">
                         <?= $b["nama_alatmusik"] ?>
                     </a>
+                    <br>
                     <a href="php/login.php">
-                        <button type="">Masuk Ke halaman admin</button>
+                        <button class="btn btn-light" type="">Masuk Ke halaman admin</button>
                         <a />
                 </P>
             <?php endforeach; ?>
