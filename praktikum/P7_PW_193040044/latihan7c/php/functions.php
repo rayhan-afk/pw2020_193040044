@@ -62,14 +62,14 @@ function ubah($data)
 
     $queryubah = "UPDATE alat_musik
                     SET
-                    gambar = '$gambar'
-                    nama_alatmusik = '$nama_alatmusik'
-                    jenis = '$jenis'
-                    asal = '$asal'
-                    tahun_ditemukan = $tahun_ditemukan'
+                    gambar = '$gambar',
+                    nama_alatmusik = '$nama_alatmusik',
+                    jenis = '$jenis',
+                    asal = '$asal',
+                    tahun_ditemukan = '$tahun_ditemukan',
                     warna = '$warna'
                 WHERE id = '$id' ";
-    mysqli_query($conn, $queryubah);
+    mysqli_query($conn, $queryubah) or die($conn);
 
     return mysqli_affected_rows($conn);
 }

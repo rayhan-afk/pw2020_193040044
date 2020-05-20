@@ -11,16 +11,16 @@ $id = $_GET['id'];
 $alatmusik = query("SELECT * FROM alat_musik WHERE id = $id")[0];
 
 if (isset($_POST['ubah'])) {
-  if (tambah($_POST) > 0) {
+  if (ubah($_POST) > 0) {
     echo "<script>
                     alert('Data berhasil diubah!');
                     document.location.href = 'admin.php';
                 </script>";
   } else {
-    echo "<script>
-                    alert('Data gagal diubah!');
-                    document.location.href = 'admin.php';
-                </script>";
+    // echo "<script>
+    //                 alert('Data gagal diubah!');
+    //                 document.location.href = 'admin.php';
+    //             </script>";
   }
 }
 ?>
@@ -38,6 +38,8 @@ if (isset($_POST['ubah'])) {
 <body style="background-color: aquamarine; ">
   <h3>Form Ubah Data Alat Musik</h3>
   <form action="" method="post">
+    <input type="hidden" name="id" value="<?= $alatmusik['id']; ?>">
+
     <ul>
       <li>
         <label for="gambar">Gambar :</label>

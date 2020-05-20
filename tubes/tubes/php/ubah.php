@@ -17,10 +17,10 @@ if (isset($_POST['ubah'])) {
                     document.location.href = 'admin.php';
                 </script>";
   } else {
-    //   echo "<script>
-    //                 alert('Data gagal diubah!');
-    //                 document.location.href = 'admin.php';
-    //              </script>";
+    echo "<script>
+                    alert('Data gagal diubah!');
+                    document.location.href = 'admin.php';
+                 </script>";
   }
 }
 ?>
